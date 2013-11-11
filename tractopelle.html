@@ -1,0 +1,23 @@
+<head>
+  <title>tractopelle</title>
+</head>
+
+<body>
+  {{> keypad}}
+  {{> touchMotors}}
+</body>
+
+<template name="keypad">
+  <h1>Keypad Controller</h1>
+  <div class="controller"> </div>
+</template>
+
+<template name="touchMotors">
+  <h1>touchMotors</h1>
+  <div class="touchController">
+    <div class="gauge">
+      <div class="speed"></div>
+    </div>
+    <label>{{speed}}</label>
+</template>
+

@@ -1,0 +1,23 @@
+/* CSS declarations go here */
+.controller {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ccc;
+}
+
+.gauge {
+  border: 1px solid #ccc;
+  width: 50px;
+  height: 100px;
+  position: relative;
+}
+
+.gauge .speed {
+  border-top: 1px solid #ccc;
+  background: rgba(255, 100, 100, .2);
+  height: 0;
+  width: 50px;
+  position: absolute;
+  bottom: 0px;
+  vertical-align: -100px;
+}
