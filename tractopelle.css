@@ -5,14 +5,14 @@
   border: 1px solid #ccc;
 }
 
-.gauge {
+.gauge{
   border: 1px solid #ccc;
   width: 50px;
   height: 100px;
   position: relative;
 }
 
-.gauge .speed {
+.speed {
   border-top: 1px solid #ccc;
   background: rgba(255, 100, 100, .2);
   height: 0;

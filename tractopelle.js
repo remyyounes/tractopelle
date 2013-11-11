@@ -1,23 +1,20 @@
-
-
-
-
+var g;
 if (Meteor.isClient) {
 
-  Template.touchMotors.events({
-    'click .gauge' : function (e) {
-      var $t = $(e.target);
-      // gaugeVale: offset of click relative to .gauge height
-      var gaugeValue = $t.height() - e.offsetY;
-      $t.find(".speed").height(gaugeValue);
-    }
+  $(document).on("ready", function(){
+    g = $(".gauge").gauge({value: "20"})
+    .bind( "gaugesetoption", function( event, data ) {
+      console.log(data.option === "value");
+        if(data.option === "value"){
+          var speed = parseInt(data.current * 255 / 100);
+          Meteor.call("setSpeed", speed, function(error, result){
+            console.log('result',result); 
+          });
+        }
+    });
+    g.gauge( "option", "value", 100 );
+
   });
-
-  Template.touchMotors.speed = function () {
-    console.log('speed', this.speed);
-    return this.speed;
-  };
-
 
   Template.keypad.rendered = function(){
     $(window).on('keydown', function(e){
@@ -50,7 +47,7 @@ if (Meteor.isClient) {
         console.log('result',result); 
       });
     });
-  }
+  };
 
 }
 
@@ -61,4 +58,6 @@ if (Meteor.isServer) {
     // var robot = new Robot();
   });
 }
+
+
 
