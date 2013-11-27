@@ -4,10 +4,14 @@
 
 <body>
   {{> keypad}}
-  <div class="gauge"></div>
+  <div class="motorGauges">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
 </body>
 
 <template name="keypad">
-  <h1>Keypad Controller</h1>
-  <div class="controller"> </div>
+  <div class="controller">
+    <label>Keypad</label>
+  </div>
 </template>

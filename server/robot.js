@@ -28,6 +28,14 @@ Robot.prototype = {
   },
   setSpeed: function(speed){
     this.speed = speed;
+  },
+  setMotor: function(motor, speed, dir) {
+    console.log(motor, speed, dir);
+    motor = motor==="left"?this.lm:this.rm;
+    if(!dir)
+      motor.reverse(speed);
+    else
+      motor.forward(speed);
   }
 };
 
@@ -56,6 +64,10 @@ Meteor.methods({
   setSpeed: function(speed) {
     robot.setSpeed(speed);
     return "returning setSpeed " + speed;
+  },
+  setMotor: function(motor, speed, dir) {
+    robot.setMotor(motor,speed, dir);
+    return "returning setMotor " + motor;
   }
 });
 
@@ -68,4 +80,6 @@ board.on("ready", function() {
   leftMotor = new five.Motor([3, 12]);
   rightMotor = new five.Motor([11, 13]);
   robot = new Robot(leftMotor, rightMotor);
+  board.firmata.pinMode( 4, this.firmata.MODES.OUTPUT  );
+  board.firmata.digitalWrite( 4, 255 );
 });

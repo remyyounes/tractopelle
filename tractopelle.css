@@ -5,19 +5,35 @@
   border: 1px solid #ccc;
 }
 
-.gauge{
-  border: 1px solid #ccc;
-  width: 50px;
+.motorGauges div {
+  /*border: 1px solid #ccc;*/
+  width: 40px;
   height: 100px;
   position: relative;
+  display:  inline-block;
+  margin: 5px 10px 0 1px;
 }
 
-.speed {
-  border-top: 1px solid #ccc;
-  background: rgba(255, 100, 100, .2);
-  height: 0;
-  width: 50px;
+
+/* jQuery Slider */
+.ui-slider {
+  position: relative;
+  border: 1px solid #CCC;
+}
+.ui-slider-vertical .ui-slider-range-min {
+  bottom: 0;
+}
+.ui-slider-vertical .ui-slider-range {
+  left: 0;
+  width: 100%;
+}
+.ui-slider .ui-slider-range {
   position: absolute;
-  bottom: 0px;
-  vertical-align: -100px;
+  z-index: 1;
+  display: block;
+  border: 0;
+}
+.ui-widget-header {
+  border: 1px solid #aaa;
+  background: rgba(255, 100, 100, .5);
 }
